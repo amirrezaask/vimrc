@@ -44,6 +44,12 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set softtabstop=2
     \ set shiftwidth=2
 
+
+"GO"
+let g:go_auto_type_info = 1
+
+set updatetime=100
+
 autocmd StdinReadPre * let s:std_in=1
 
 
