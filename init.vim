@@ -80,4 +80,4 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-e> :GoTestFunc<CR>
-
+map <C-r> :GoRun<CR>
