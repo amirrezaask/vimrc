@@ -16,6 +16,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'SirVer/ultisnips'
+
 call vundle#end()
 "End Vundle"
 
@@ -36,6 +39,8 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent | 
     \ set fileformat=unix |
+
+let g:jedi#goto_definitions_command = "<C-d>"
 
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -74,5 +79,5 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 map <C-n> :NERDTreeToggle<CR>
-
+map <C-e> :GoTestFunc<CR>
 
