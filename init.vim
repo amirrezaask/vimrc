@@ -24,10 +24,12 @@ Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
 Plug 'airblade/vim-gitgutter'
-
+Plug 'chriskempson/base16-vim'
+Plug 'markvincze/panda-vim'
 call plug#end()
 
-colorscheme space-vim-dark 
+color onedark
+set background=dark
 filetype plugin indent on
 set encoding=utf-8
 let python_highlight_all=1
