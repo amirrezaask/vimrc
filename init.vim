@@ -1,26 +1,23 @@
 set nocompatible
 filetype off
-"Vundle"
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'fatih/vim-go'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'SirVer/ultisnips'
+call plug#begin('~/.local/share/nvim/plugged')
 
-call vundle#end()
-"End Vundle"
+Plug 'vim-scripts/indentpython.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'fatih/vim-go'
+Plug 'davidhalter/jedi-vim'
+Plug 'SirVer/ultisnips'
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+call plug#end()
 
 colorscheme space-vim-dark 
 filetype plugin indent on
@@ -41,7 +38,6 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix |
 
 let g:jedi#goto_definitions_command = "<C-d>"
-
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
@@ -64,11 +60,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
-if has('nvim')
-    " Enable deoplete on startup
-    let g:deoplete#enable_at_startup = 1
-endif
-
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = '/home/amirreza/go/bin/gocode'
 au FileType go nmap <C-d> <Plug>(go-def)
 
 set updatetime=50
@@ -81,3 +74,4 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 map <C-e> :GoTestFunc<CR>
 map <C-r> :GoRun<CR>
+map <C-x><C-o> <C-s> 
